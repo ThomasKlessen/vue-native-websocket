@@ -32,7 +32,7 @@ export default class {
     }
 
     if (!('forceReconnect' in this.WebSocket)) {
-      this.WebSocket.forceReconnect = this.forceReconnect
+      this.WebSocket.forceReconnect = this.forceReconnect.bind(this)
     }
 
     return this.WebSocket
