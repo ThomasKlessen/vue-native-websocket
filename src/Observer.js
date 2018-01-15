@@ -31,7 +31,16 @@ export default class {
       this.WebSocket.reconnect = this.reconnect
     }
 
+    if (!('forceReconnect' in this.WebSocket)) {
+      this.WebSocket.forceReconnect = this.forceReconnect
+    }
+
     return this.WebSocket
+  }
+
+  forceReconnect () {
+    this.opts.WebSocket = undefined
+    this.connect(this.connectionUrl, this.opts)
   }
 
   reconnect () {
