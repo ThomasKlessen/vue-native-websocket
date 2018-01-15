@@ -27,6 +27,10 @@ export default class {
       }
     }
 
+    if (!('reconnect' in this.WebSocket)) {
+      this.WebSocket.reconnect = this.reconnect
+    }
+
     return this.WebSocket
   }
 
