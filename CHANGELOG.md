@@ -2,6 +2,15 @@
 
 This package is [semantic versioned](http://semver.org/)
 
+## 2.0.5
+
+- [bugfix]: fixed context for events callback. thx [@n5leon](https://github.com/n5leon)
+
+## 2.0.4
+
+- [feature]: namespace actions. thx [@ThomasKlessen](https://github.com/ThomasKlessen) and double thx for tests / test updates!
+- [feature]: reconnect. thx [@weglov](https://github.com/weglov)
+
 ## 2.0.3
 
 - [bugfix]: handle json responses that do not include a `.mutation` value
