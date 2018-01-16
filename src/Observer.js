@@ -43,6 +43,7 @@ export default class {
     this.opts.WebSocket = undefined
     const newSocket = this.connect(this.connectionUrl, this.opts)
     this.Vue.prototype.$socket = newSocket
+    console.log('new Socket: ', this.Vue.prototype.$socket)
   }
 
   reconnect () {
