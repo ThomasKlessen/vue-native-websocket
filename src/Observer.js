@@ -1,10 +1,11 @@
 import Emitter from './Emitter'
 
 export default class {
-  constructor (connectionUrl, opts = {}) {
+  constructor (connectionUrl, opts = {}, Vue) {
     this.format = opts.format && opts.format.toLowerCase()
     this.connectionUrl = connectionUrl
     this.opts = opts
+    this.Vue = Vue
 
     this.reconnection = this.opts.reconnection || false
     this.reconnectionAttempts = this.opts.reconnectionAttempts || Infinity
@@ -40,7 +41,8 @@ export default class {
 
   forceReconnect () {
     this.opts.WebSocket = undefined
-    this.connect(this.connectionUrl, this.opts)
+    const newSocket = this.connect(this.connectionUrl, this.opts)
+    this.Vue.prototype.$socket = newSocket
   }
 
   reconnect () {

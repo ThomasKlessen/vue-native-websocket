@@ -6,7 +6,7 @@ export default {
   install (Vue, connection, opts = {}) {
     if (!connection) { throw new Error('[vue-native-socket] cannot locate connection') }
 
-    let observer = new Observer(connection, opts)
+    let observer = new Observer(connection, opts, Vue)
 
     Vue.prototype.$socket = observer.WebSocket
 
